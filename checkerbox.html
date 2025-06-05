@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Centered Pink and Black Checkerboard</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: white;
+    }
+
+    .checkerboard {
+      display: grid;
+      grid-template-columns: repeat(8, 50px);
+      grid-template-rows: repeat(8, 50px);
+      border: 6px solid black;
+    }
+
+    .square {
+      width: 50px;
+      height: 50px;
+    }
+
+    .black {
+      background-color: black;
+    }
+
+    .pink {
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+  <div class="checkerboard">
+    
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <!-- Row 2 (Start with black) -->
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <!-- Row 3 (Start with pink) -->
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <!-- Row 4 (Start with black) -->
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <!-- Row 5 (Start with pink) -->
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <!-- Row 6 (Start with black) -->
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <!-- Row 7 (Start with pink) -->
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <div class="square pink"></div><div class="square black"></div>
+    <!-- Row 8 (Start with black) -->
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+    <div class="square black"></div><div class="square pink"></div>
+  </div>
+</body>
+</html>
