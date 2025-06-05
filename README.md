@@ -1,2 +1,2 @@
 # MERN
-MERN STACK PROJECT 
+MERN STACK (real-time webpages ,tasks ,assignments)
