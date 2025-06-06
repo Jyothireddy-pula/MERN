@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Delicious Items</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 40px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .slide {
+      padding: 20px 40px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      text-align: left;
+      width: 300px;
+    }
+
+    h1 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    ul {
+      list-style: none;
+      font-size: 20px;
+      padding-left: 20px;
+      color: #444;
+    }
+
+    ul li {
+      margin: 15px 0;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    ul li::before {
+      content: '*';
+      color: crimson;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 24px;
+      line-height: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="slide">
+    <h1>Delicious Items</h1>
+    <ul>
+      <li>Hummus</li>
+      <li>Pita</li>
+      <li>Green salad</li>
+      <li>Halloumi</li>
+    </ul>
+  </div>
+
+</body>
+</html>

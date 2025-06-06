@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>List with .one and small circle subtopics</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    ul.one {
+      list-style-type: square; 
+      padding-left: 40px;
+      font-size: 20px;
+    }
+
+    ul.one ul {
+      list-style-type: circle; 
+      padding-left: 30px;
+      font-size: 18px;
+      color: #555;
+    }
+
+    ul.one li {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Main Topics with Subtopics</h2>
+  <ul class="one">
+    <li>HTML Basics
+      <ul>
+        <li>Tags</li>
+        <li>Attributes</li>
+        <li>Elements</li>
+      </ul>
+    </li>
+    <li>CSS Fundamentals
+      <ul>
+        <li>Selectors</li>
+        <li>Box Model</li>
+        <li>Flexbox</li>
+      </ul>
+    </li>
+    <li>JavaScript Essentials
+      <ul>
+        <li>Variables</li>
+        <li>Functions</li>
+        <li>Events</li>
+      </ul>
+    </li>
+  </ul>
+
+</body>
+</html>
