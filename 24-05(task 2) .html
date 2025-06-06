@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document Formatting</title>
+ <style>
+ body {
+ font-family: Arial, sans-serif;
+ background-color: #f0f0f0;
+ }
+
+
+ .container {
+ width: 80%;
+ margin: 20px auto;
+ background-color: #fff;
+ padding: 20px;
+ box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+ }
+
+
+ h1 {
+ color: #d9534f;
+ }
+
+
+ .text-block {
+ background-color: #f9f2c7;
+ border: 1px solid #e0d8b4;
+ padding: 15px;
+ margin-bottom: 20px;
+ border-radius: 10px;
+ position: relative;
+ }
+
+
+ .text-block::before {
+ content: "";
+ position: absolute;
+ top: -5px;
+ left: 10px;
+ width: 15px;
+ height: 15px;
+ background-color: #f9f2c7;
+ border-radius: 50%;
+ border: 1px solid #e0d8b4;
+ }
+
+
+ .text-block::after {
+ content: "";
+ position: absolute;
+ top: -5px;
+ right: 10px;
+ width: 15px;
+ height: 15px;
+ background-color: #f9f2c7;
+ border-radius: 50%;
+ border: 1px solid #e0d8b4;
+ }
+
+
+ p {
+ line-height: 1.6;
+ color: #333;
+ }
+
+
+ .footer {
+ text-align: center;
+ margin-top: 30px;
+ color: #777;
+ }
+ </style>
+</head>
+<body>
+ <div class="container">
+ <h1>Basic Formatting using Inline CSS</h1>
+
+
+ <div class="text-block">
+ <p>On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks. When you create pictures, charts, or diagrams, they also coordinate with your current theme or using a format that you specify directly. To change the overall look of your document, choose new Theme elements on the Page Layout tab. To change the looks available in the Quick Style gallery, use the Change Current Quick Style Set command. Both the Themes gallery and the Quick Styles gallery provide reset commands so that you can always restore the look of your document to the original contained in your current template. On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document.</p>
+ </div>
+
+
+ <div class="text-block">
+ <p>On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks. When you create pictures, charts, or diagrams, they also coordinate with your current theme or using a format that you specify directly. To change the overall look of your document, choose new Theme elements on the Page Layout tab. To change the looks available in the Quick Style gallery, use the Change Current Quick Style Set command. Both the Themes gallery and the Quick Styles gallery provide reset commands so that you can always restore the look of your document to the original contained in your current template. On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document.</p>
+ </div>
+
+
+ <div class="text-block">
+ <p>On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document. You can use these galleries to insert tables, headers, footers, lists, cover pages, and other document building blocks. When you create pictures, charts, or diagrams, they also coordinate with your current theme or using a format that you specify directly. To change the overall look of your document, choose new Theme elements on the Page Layout tab. To change the looks available in the Quick Style gallery, use the Change Current Quick Style Set command. Both the Themes gallery and the Quick Styles gallery provide reset commands so that you can always restore the look of your document to the original contained in your current template. On the Insert tab, the galleries include items that are designed to coordinate with the overall look of your document.</p>
+ </div>
+
+
+ <div class="footer">
+ <p>www.example.com/mern</p>
+ <p>by Example</p>
+ </div>
+ </div>
+</body>
+</html>
