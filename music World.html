@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Music World</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: url('https://www.transparenttextures.com/patterns/stardust.png'), #000;
+      color: white;
+    }
+
+    header {
+      background: linear-gradient(to bottom, #000000, #222);
+      padding: 20px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      color: #fff;
+      text-shadow: 2px 2px #00f;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #111;
+      padding: 10px;
+      border-bottom: 2px solid #444;
+    }
+
+    nav a {
+      margin: 0 10px;
+      padding: 10px 20px;
+      color: white;
+      text-decoration: none;
+      background-color: #333;
+      border-radius: 5px;
+      border: 1px solid #666;
+    }
+
+    nav a:hover {
+      background-color: #555;
+    }
+
+    .section {
+      margin: 30px auto;
+      width: 90%;
+      border: 2px dashed white;
+      padding: 15px;
+    }
+
+    .section h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #0ff;
+    }
+
+    .album-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: start;
+    }
+
+    .album {
+      text-align: center;
+      width: 120px;
+    }
+
+    .album img {
+      width: 120px;
+      height: 170px;
+      border: 2px solid white;
+      border-radius: 5px;
+      object-fit: cover;
+    }
+
+    .album p {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+
+    @media screen and (max-width: 600px) {
+      .album-row {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>Music World</header>
+
+  <nav>
+    <a href="#">HOME</a>
+    <a href="#">ABOUT US</a>
+    <a href="#">CATEGORY !</a>
+    <a href="#">PRODUCTION</a>
+    <a href="#">GALLERY</a>
+    <a href="#">CONTACT US</a>
+    <a href="#">LOGIN</a>
+  </nav>
+
+  <div class="section">
+    <h2>→ Latest Albums ...</h2>
+    <div class="album-row">
+      <div class="album">
+        <a href="https://open.spotify.com/playlist/1uhgNaUnUwRJcVY9krVAER" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/2/2e/HIT_3_poster.jpg" alt="HIT 3">
+          <p>HIT 3 - Mickey J Meyer</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://music.apple.com/in/album/sankranthiki-vasthunam-original-motion-picture-soundtrack/1790594824" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Sankranthiki_Vasthunam_poster.jpg" alt="Sankranthiki Vasthunam">
+          <p>Sankranthiki Vasthunam - Bheems Ceciroleo</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>→ TOP 10 Songs ...</h2>
+    <div class="album-row">
+      <div class="album">
+        <a href="https://www.youtube.com/watch?v=ffcOcghuYFM" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/2/2e/HIT_3_poster.jpg" alt="Prema Velluva">
+          <p>Prema Velluva - Sid Sriram</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://www.youtube.com/watch?v=28er1wF-rvo" target="_blank">
+          <img src="https://www.saregama.com/image/song/album/173643/Thanu-HIT-3-Telugu.jpg" alt="Thanu">
+          <p>Thanu - Anirudh Ravichander</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://www.youtube.com/watch?v=UzrDeGbqG4U" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/2/2e/HIT_3_poster.jpg" alt="Abki Baar Arjun Sarkaar">
+          <p>Abki Baar Arjun Sarkaar</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://www.youtube.com/watch?v=gux_FB4q5k0" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/2/2e/HIT_3_poster.jpg" alt="Poratame 3.0">
+          <p>Poratame 3.0</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://www.youtube.com/watch?v=Apj9ISyXr_s" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Sankranthiki_Vasthunam_poster.jpg" alt="Godari Gattu">
+          <p>Godari Gattu - Ramana Gogula, Madhu Priya</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://open.spotify.com/track/74doieA1YscEBIpf3rK8I9" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Sankranthiki_Vasthunam_poster.jpg" alt="Meenu">
+          <p>Meenu - Bheems Ceciroleo, Pranavi Acharya</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://www.youtube.com/watch?v=S8NDIJBbd3Q" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Sankranthiki_Vasthunam_poster.jpg" alt="Blockbuster Pongal">
+          <p>Blockbuster Pongal - Venkatesh, Bheems Ceciroleo</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://www.youtube.com/watch?v=vhmRHJEErTE" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Sankranthiki_Vasthunam_poster.jpg" alt="Lallayire">
+          <p>Lallayire - Bheems Ceciroleo</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://www.youtube.com/watch?v=example" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Sankranthiki_Vasthunam_poster.jpg" alt="Guruvarya">
+          <p>Guruvarya - Sri Krishna</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://www.youtube.com/watch?v=example" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/en/3/3e/Sankranthiki_Vasthunam_poster.jpg" alt="Chinna Raju">
+          <p>Chinna Raju - Revathi Mannava, Madhavi Ravuri, Sudha</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>→ Top 10 Artists ...</h2>
+    <div class="album-row">
+      <div class="album">
+        <a href="https://en.wikipedia.org/wiki/Sid_Sriram" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Sid_Sriram_2019.jpg" alt="Sid Sriram">
+          <p>Sid Sriram</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://en.wikipedia.org/wiki/Anirudh_Ravichander" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Anirudh_Ravichander_at_the_Audio_Launch_of_Vanakkam_Chennai.jpg" alt="Anirudh Ravichander">
+          <p>Anirudh Ravichander</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://en.wikipedia.org/wiki/Mickey_J_Meyer" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Mickey_J_Meyer.jpg" alt="Mickey J Meyer">
+          <p>Mickey J Meyer</p>
+        </a>
+      </div>
+      <div class="album">
+        <a href="https://en.wikipedia.org/wiki/Bheems_Ceciroleo" target="_blank">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3e/Bheems_Ceciroleo.jpg" alt="Bheems Ceciroleo">
+          <p>Bheems Ceciroleo</p>
+        </a>
+      </div>
+      <div class="
+::contentReference[oaicite:0]{index=0}
+ 
