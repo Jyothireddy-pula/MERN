@@ -1,0 +1,71 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f6fb;
+}
+
+.task-header {
+    background-color: #245222;
+    color: white;
+    font-weight: bold;
+    padding: 10px 30px;
+    clip-path: polygon(0 0, 95% 0, 100% 50%, 95% 100%, 0 100%);
+    width: 180px;
+    margin: 20px;
+    font-size: 18px;
+}
+
+.container {
+    display: flex;
+    align-items: flex-start;
+    margin: 20px;
+}
+
+.sidenav {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+}
+
+.sidenav-btn {
+    width: 30px;
+    height: 40px;
+    margin: 5px 0;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidenav-btn:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+.green { background-color: #33b249; }
+.blue { background-color: #3498db; }
+.red { background-color: #e74c3c; }
+.gray { background-color: #555; }
+
+.main-content {
+    background: white;
+    padding: 30px;
+    border: 1px solid #aaa;
+    width: 60%;
+    min-height: 200px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.main-content h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+.bottom-pattern {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 200px;
+    height: 60px;
+    background: url('https://i.imgur.com/CkwMzOx.png') no-repeat;
+    background-size: contain;
+}
