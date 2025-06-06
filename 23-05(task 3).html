@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Doctor Appointment Form</title>
+  <style>
+  body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  }
+  .container {
+  max-width: 960px;
+  margin: auto;
+  display: flex;
+  }
+  .left-side {
+  width: 50%;
+  padding: 20px;
+  }
+  .right-side {
+  width: 50%;
+  padding: 20px;
+  }
+  .form-group {
+  margin-bottom: 15px;
+  }
+  label {
+  display: block;
+  margin-bottom: 5px;
+  }
+  input[type="text"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  }
+  .name-fields {
+  display: flex;
+  justify-content: space-between;
+  }
+  .name-fields input[type="text"] {
+  width: 48%;
+  }
+  input[type="radio"] {
+  margin-right: 5px;
+  }
+  .appointment-types {
+  margin-top: 10px;
+  }
+  .appointment-types label {
+  display: block;
+  margin-bottom: 3px;
+  }
+  .form-title {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #8B0000; /* Dark Red */
+  }
+  hr {
+  border: 1px solid #8B0000; /* Dark Red */
+  margin-bottom: 20px;
+  }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+  <div class="left-side">
+  <img src="https://www.shutterstock.com/image-vector/male-doctor-smiling-selfconfidence-flat-600nw-2281709217.jpg" alt="Doctor" style="width:100%;">
+  </div>
+  <div class="right-side">
+  <h2 class="form-title">Doctor Appointment Form</h2>
+  <hr>
+  <form action="#" method="post">
+  <div class="form-group">
+  <label for="appointment_date">Appointment Date</label>
+  <input type="date" id="appointment_date" name="appointment_date">
+  </div>
+  <div class="form-group">
+  <label for="appointment_time">Appointment Time</label>
+  <select id="appointment_time" name="appointment_time">
+  <option value="">--:--</option>
+  <option value="9:00">9:00 AM</option>
+  <option value="10:00">10:00 AM</option>
+  <option value="11:00">11:00 AM</option>
+  <option value="14:00">2:00 PM</option>
+  <option value="15:00">3:00 PM</option>
+  <option value="16:00">4:00 PM</option>
+  </select>
+  </div>
+  <div class="form-group">
+  <label for="name">Name</label>
+  <div class="name-fields">
+  <input type="text" id="first_name" name="first_name" placeholder="First">
+  <input type="text" id="last_name" name="last_name" placeholder="Last">
+  </div>
+  </div>
+  <div class="form-group">
+  <label>Gender</label>
+  <input type="radio" id="male" name="gender" value="male">
+  <label for="male">Male</label>
+  <input type="radio" id="female" name="gender" value="female">
+  <label for="female">Female</label>
+  </div>
+  <div class="form-group">
+  <label for="phone">Phone</label>
+  <input type="tel" id="phone" name="phone" placeholder="####">
+  </div>
+  <div class="form-group">
+  <label for="address">Address</label>
+  <div style="display: flex; justify-content: space-between;">
+  <input type="text" id="city" name="city" placeholder="City" style="width: 48%;">
+  <input type="text" id="state" name="state" placeholder="State" style="width: 48%;">
+  </div>
+  </div>
+  <div class="form-group">
+  <label for="query">Your Query</label>
+  <textarea id="query" name="query" rows="4"></textarea>
+  </div>
+  <div class="form-group">
+  <label>Appointment Type</label>
+  <div class="appointment-types">
+  <label><input type="checkbox" name="appointment_type" value="cervix">Cervix checkup</label>
+  <label><input type="checkbox" name="appointment_type" value="heart">Heart checkup</label>
+  <label><input type="checkbox" name="appointment_type" value="eye">Eye check-up</label>
+  <label><input type="checkbox" name="appointment_type" value="hearing">Hearing Test</label>
+  </div>
+  </div>
+  <button type="submit">Send</button>
+  </form>
+  </div>
+  </div>
+ </body>
+ </html>
