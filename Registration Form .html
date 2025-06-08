@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 14px;
+      margin-left: 10px;
+    }
+    input, textarea {
+      border: 2px solid red;
+      margin-bottom: 10px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h2 style="text-align: center;">Registration Form</h2>
+  <form id="regForm" onsubmit="return validateForm()">
+    <label>Name:</label>
+    <input type="text" id="name" />
+    <span id="nameErr" class="error"></span><br/>
+
+    <label>Email:</label>
+    <input type="text" id="email" />
+    <span id="emailErr" class="error"></span><br/>
+
+    <label>Website:</label>
+    <input type="text" id="website" />
+    <span id="websiteErr" class="error"></span><br/>
+
+    <label>Message:</label>
+    <textarea id="message" rows="4" cols="30"></textarea>
+    <span id="messageErr" class="error"></span><br/>
+
+    <input type="submit" value="Submit" />
+  </form>
+
+  <script>
+    function validateForm() {
+      var valid = true;
+
+      var name = document.getElementById("name").value.trim();
+      var email = document.getElementById("email").value.trim();
+      var website = document.getElementById("website").value.trim();
+      var message = document.getElementById("message").value.trim();
+
+      // Clear previous errors
+      document.getElementById("nameErr").innerHTML = "";
+      document.getElementById("emailErr").innerHTML = "";
+      document.getElementById("websiteErr").innerHTML = "";
+      document.getElementById("messageErr").innerHTML = "";
+
+      if (name === "") {
+        document.getElementById("nameErr").innerHTML = "This field is required";
+        valid = false;
+      }
+
+      var emailPattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+      if (email === "") {
+        document.getElementById("emailErr").innerHTML = "This field is required";
+        valid = false;
+      } else if (!email.match(emailPattern)) {
+        document.getElementById("emailErr").innerHTML = "A valid email address is required";
+        valid = false;
+      }
+
+      var urlPattern = /^(http|https):\/\/[^ "]+$/;
+      if (website === "") {
+        document.getElementById("websiteErr").innerHTML = "This field is required";
+        valid = false;
+      } else if (!website.match(urlPattern)) {
+        document.getElementById("websiteErr").innerHTML = "A valid url is required";
+        valid = false;
+      }
+
+      if (message === "") {
+        document.getElementById("messageErr").innerHTML = "This field is required";
+        valid = false;
+      }
+
+      if (valid) {
+        document.write("<h2>Form Submitted Successfully!</h2>");
+      }
+
+      return false; // Prevent actual form submission
+    }
+  </script>
+</body>
+</html>
