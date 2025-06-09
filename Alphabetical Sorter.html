@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Alphabetical Sorter</title>
+</head>
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: greenyellow
+        
+    </style>
+
+  <h2>Sort Letters Alphabetically</h2>
+  <input type="text" id="textInput" placeholder="Enter a string">
+  <button onclick="sortAlphabetically()">Sort</button>
+  <p id="result"></p>
+
+  <script>
+    function sortAlphabetically() {
+      let str = document.getElementById("textInput").value;
+      let sorted = str.split('').sort().join('');
+      document.getElementById("result").textContent = "Sorted: " + sorted;
+    }
+  </script>
+</body>
+</html>
