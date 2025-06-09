@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>All Types of JavaScript Functions</title>
+</head>
+<body>
+
+<script>
+  // 1. Function Declaration
+  function greetDeclaration() {
+    document.write("1. Function Declaration: Hello!<br>");
+  }
+  greetDeclaration();
+
+  // 2. Function Expression
+  const greetExpression = function() {
+    document.write("2. Function Expression: Hello!<br>");
+  };
+  greetExpression();
+
+  // 3. Arrow Function
+  const greetArrow = () => {
+    document.write("3. Arrow Function: Hello!<br>");
+  };
+  greetArrow();
+
+  // 4. Anonymous Function (Callback)
+  setTimeout(function() {
+    document.write("4. Anonymous Function (setTimeout): Hello after 1 second!<br>");
+  }, 1000);
+
+  // 5. Named Function Expression
+  const greetNamed = function namedFn() {
+    document.write("5. Named Function Expression: Hello!<br>");
+  };
+  greetNamed();
+
+  // 6. Immediately Invoked Function Expression (IIFE)
+  (function() {
+    document.write("6. IIFE: Hello from IIFE!<br>");
+  })();
+
+  // 7. Function with Parameters and Return Value
+  function add(a, b) {
+    return a + b;
+  }
+  document.write("7. With Parameters: 3 + 4 = " + add(3, 4) + "<br>");
+
+  // 8. Arrow Function with Implicit Return
+  const square = x => x * x;
+  document.write("8. Arrow Function (Implicit Return): square(5) = " + square(5) + "<br>");
+
+  // 9. Constructor Function
+  function Person(name) {
+    this.name = name;
+  }
+  const person1 = new Person("JYOTHI REDDY PULA");
+  document.write("9. Constructor Function: Person name = " + person1.name + "<br>");
+
+  // 10. Generator Function
+  function* countUp() {
+    yield 1;
+    yield 2;
+    yield 3;
+  }
+  const counter = countUp();
+  document.write("10. Generator: " + counter.next().value + "<br>");
+  document.write("10. Generator: " + counter.next().value + "<br>");
+  document.write("10. Generator: " + counter.next().value + "<br>");
+
+  // 11. Async Function
+  async function fetchData() {
+    return "11. Async Function: Data fetched!";
+  }
+  fetchData().then(data => {
+    document.write(data + "<br>");
+  });
+</script>
+
+</body>
+</html>
