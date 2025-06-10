@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Save and Load Form Data</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    label, input {
+      display: block;
+      margin: 10px 0;
+    }
+    button {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>User Information</h2>
+
+  <label for="name">Name:</label>
+  <input type="text" id="name" placeholder="Enter your name">
+
+  <label for="age">Age:</label>
+  <input type="text" id="age" placeholder="Enter your age">
+
+  <button onclick="saveData()">Save</button>
+  <button onclick="loadData()">Load</button>
+
+  <script>
+    function saveData() {
+      const name = document.getElementById("name").value;
+      const age = document.getElementById("age").value;
+      localStorage.setItem("userName", name);
+      localStorage.setItem("userAge", age);
+      alert("Data saved to localStorage!");
+    }
+
+    function loadData() {
+      const name = localStorage.getItem("userName");
+      const age = localStorage.getItem("userAge");
+      if (name !== null && age !== null) {
+        document.getElementById("name").value = name;
+        document.getElementById("age").value = age;
+        alert("Data loaded from localStorage!");
+      } else {
+        alert("No data found in localStorage.");
+      }
+    }
+  </script>
+
+</body>
+</html>

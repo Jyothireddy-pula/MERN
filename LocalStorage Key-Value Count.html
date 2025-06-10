@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>LocalStorage Key-Value Count</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .highlight {
+      color: purple;
+    }
+    .code {
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 10px;
+      font-family: monospace;
+      color: darkred;
+    }
+  </style>
+</head>
+<body>
+
+  <h3>▶️ <span style="color:blue;">To get</span> the <b>number</b> of <span style="color:green;">key-value</span> pairs, <b>we can use</b> the <span class="highlight">length</span> property like this:</h3>
+
+  <h3>▶️ <span style="color:blue;">Example:</span></h3>
+  <div class="code">
+    console.log(window.localStorage.length);
+  </div>
+
+  <br><br>
+
+  <button onclick="showLocalStorageCount()">Show Count in Console</button>
+
+  <script>
+    function showLocalStorageCount() {
+      console.log("Total key-value pairs in localStorage:", window.localStorage.length);
+      alert("Check the console for output.");
+    }
+  </script>
+
+</body>
+</html>
