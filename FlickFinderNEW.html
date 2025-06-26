@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FlickFinder</title>
+  <style>
+    /* GLOBAL STYLES */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: sans-serif; background: #222; color: #eee; }
+    a { text-decoration: none; color: inherit; }
+
+    header { display: flex; justify-content: space-between; align-items: center; padding: 20px; background: #111; }
+    header .logo { font-size: 1.5em; font-weight: bold; }
+    header nav a { margin: 0 15px; }
+    header .fav { background: #28a; padding: 8px 16px; color: #fff; border-radius: 4px; }
+
+    /* HERO SLIDER */
+    .hero { position: relative; height: 60vh; background: url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat; display: flex; align-items: center; justify-content: center; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+    .hero-content { position: relative; text-align: center; color: #fff; max-width: 80%; }
+    .hero-content .headline-bg {
+      display: inline-block;
+      position: relative;
+      padding: 24px 40px;
+      border-radius: 18px;
+      background: url('https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=600&q=80') center/cover no-repeat;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+      margin-bottom: 10px;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .hero-content .headline-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      border-radius: 18px;
+      z-index: 0;
+    }
+    .hero-content .headline-bg h1 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+    }
+    .hero-content p { font-size: 1.2em; margin-bottom: 20px; }
+    .hero-content button { padding: 12px 24px; font-size: 1em; background: #fff; color: #111; border: none; border-radius: 4px; cursor: pointer; }
+    .hero .arrow { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2em; color: #fff; background: rgba(0,0,0,0.4); border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; cursor: pointer; }
+    .hero .arrow.left { left: 10px; }
+    .hero .arrow.right { right: 10px; }
+
+    /* MOVIE LIST */
+    .movie-list { padding: 40px 20px; text-align: center; }
+    .movie-list h2 { font-size: 2.5em; margin-bottom: 20px; color: #2ecc71; }
+    .movie-list .categories { margin-bottom: 20px; }
+    .movie-list .categories button { margin: 0 8px; padding: 10px 20px; border: 2px solid #2ecc71; background: none; color: #eee; border-radius: 4px; cursor: pointer; transition: background 0.3s; }
+    .movie-list .categories button:hover,
+    .movie-list .categories button.active { background: #2ecc71; }
+
+    .movie-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(180px,1fr)); gap: 20px; margin-bottom: 20px; }
+    .movie-card { background: #333; padding: 10px; border-radius: 6px; position: relative; }
+    .movie-card img { width: 100%; border-radius: 4px; }
+    .movie-card h3 { margin: 10px 0 5px; font-size: 1em; }
+    .movie-card p { font-size: 0.9em; color: #ccc; }
+    .movie-card .heart { position: absolute; top: 10px; right: 10px; font-size: 1.2em; color: #2ecc71; cursor: pointer; }
+
+    .show-more { padding: 12px 24px; background: #444; border: none; color: #eee; border-radius: 4px; cursor: pointer; }
+    .pagination { margin-top: 20px; }
+    .pagination span { display: inline-block; margin: 0 5px; width: 32px; height: 32px; line-height: 32px; background: #444; border-radius: 50%; cursor: pointer; }
+    .pagination span.active { background: #2ecc71; }
+
+    /* FEATURE SLIDER */
+    .feature-slider { margin: 60px 0; padding: 20px; background: #333; border-radius: 10px; position: relative; overflow: hidden; }
+    .feature-slide { display: flex; transition: transform 0.4s ease; }
+    .feature-slide img { width: 100%; object-fit: cover; }
+
+    .feature-slider .dots { position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); display: flex; }
+    .feature-slider .dots span { width: 10px; height: 10px; margin: 0 4px; background: #555; border-radius: 50%; cursor: pointer; }
+    .feature-slider .dots span.active { background: #2ecc71; }
+
+    .faq { padding: 40px 20px; }
+    .faq h2 { text-align: center; margin-bottom: 20px; }
+    .faq-item { margin: 10px 0; }
+    .faq-item summary { background: #444; padding: 10px; border-radius: 4px; cursor: pointer; list-style: none; font-weight: bold; }
+    .faq-item p { background: #333; padding: 10px; border-radius: 0 0 4px 4px; }
+
+    footer { background: #111; color: #bbb; padding: 30px 20px; display: flex; flex-wrap: wrap; justify-content: space-between; }
+    footer section { flex: 1; min-width: 200px; margin: 10px; }
+    footer a { color: #28a; }
+    footer .social { margin-top: 10px; }
+    footer .social a { margin-right: 10px; font-size: 1.2em; color: #eee; }
+    .newsletter input[type="email"] { width: 100%; padding: 8px; margin-bottom: 8px; border: none; border-radius: 4px; }
+    .newsletter input[type="checkbox"] { margin-right: 5px; }
+    .newsletter button { padding: 10px 20px; background: #2ecc71; border: none; border-radius: 4px; color: #111; cursor: pointer; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">FlickFinder</div>
+    <nav>
+      <a href="#">Home</a>
+      <a href="#">TV Show</a>
+      <a href="#">Movie</a>
+      <a href="#">Upcoming</a>
+    </nav>
+    <button class="fav">❤️ Favorite</button>
+  </header>
+
+  <section class="hero">
+    <div class="arrow left" onclick="prevHero()">‹</div>
+    <div class="hero-content">
+      <div class="headline-bg"><h1>Bringing the Big Screen to Your Screen</h1></div>
+      <p>Discover, critique, and celebrate movies with honest reviews and fresh takes on every film</p>
+      <button>Discover More...</button>
+    </div>
+    <div class="arrow right" onclick="nextHero()">›</div>
+  </section>
+
+  <section class="movie-list">
+    <h2>Movie List</h2>
+    <div class="categories">
+      <button class="active">Marvel Movie</button>
+      <button>Funny Movie</button>
+      <button>Animation Movie</button>
+      <button>Web Series Movie</button>
+    </div>
+
+    <div class="movie-grid" id="movies">
+      <!-- Movie cards -->
+      <div class="movie-card">
+        <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=400&q=80" alt="">
+        <h3>CKY 4 Latest & Greatest</h3>
+        <p>Type: series</p>
+        <div class="heart">♡</div>
+      </div>
+
+      <div class="movie-card">
+        <img src="https://images.unsplash.com/photo-1517602302552-471fe67acf66?auto=format&fit=crop&w=400&q=80" alt="">
+        <h3>The Latest Buzz</h3>
+        <p>Type: series</p>
+        <div class="heart">♡</div>
+      </div>
+
+      <div class="movie-card">
+        <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3b99?auto=format&fit=crop&w=400&q=80" alt="">
+        <h3>River's End: California's Latest Water War</h3>
+        <p>Type: movie</p>
+        <div class="heart">♡</div>
+      </div>
+
+      <div class="movie-card">
+        <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80" alt="">
+        <h3>Avengers: Endgame and the Latest Captain Marvel Outrage!!</h3>
+        <p>Type: movie</p>
+        <div class="heart">♡</div>
+      </div>
+    </div>
+
+    <button class="show-more" onclick="alert('Load more...')">Show more..</button>
+    <div class="pagination">
+      <span class="active">1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+    </div>
+  </section>
+
+  <section class="feature-slider">
+    <div class="feature-slide" id="featureSlide">
+      <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=800&q=80" alt="">
+      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="">
+      <img src="https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=800&q=80" alt="">
+    </div>
+    <div class="dots" id="featureDots"></div>
+  </section>
+
+  <section class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-item">
+      <details open><summary>1. What is this website about?</summary>
+        <p>This website provides in‑depth reviews, ratings, and analysis of movies from different genres, release periods, and countries.</p>
+      </details>
+    </div>
+    <div class="faq-item">
+      <details><summary>2. How are movies rated?</summary><p>Ratings are based on community votes + critic scores.</p></details>
+    </div>
+    <div class="faq-item">
+      <details><summary>3. Can I submit my own reviews?</summary><p>Yes! Users can submit their own reviews after registering.</p></details>
+    </div>
+    <div class="faq-item">
+      <details><summary>4. Is the content on this website free?</summary><p>Yes, all content is available free of charge.</p></details>
+    </div>
+    <div class="faq-item">
+      <details><summary>5. How do I search for a specific movie?</summary><p>Use the search bar at the top of the movie list section.</p></details>
+    </div>
+    <div class="faq-item">
+      <details><summary>6. How often is the movie database updated?</summary><p>Our movie database is updated weekly to include the latest releases and reviews.</p></details>
+    </div>
+    <div class="faq-item">
+      <details><summary>7. Can I request a movie to be added?</summary><p>Yes, you can request a movie by contacting us through the Contact Us page. We will do our best to add it promptly.</p></details>
+    </div>
+    <div class="faq-item">
+      <details><summary>8. How do I report incorrect information about a movie?</summary><p>If you find any incorrect information, please use the feedback form or contact us directly so we can correct it as soon as possible.</p></details>
+    </div>
+  </section>
+
+  <footer>
+    <section>
+      <h4>FlickFinder</h4>
+      <a href="#">Home</a><br>
+      <a href="#">About us</a><br>
+      <a href="#">Contact us</a>
+    </section>
+    <section>
+      <h4>Products</h4>
+      <a href="#">TV Show</a><br>
+      <a href="#">Web Series</a><br>
+      <a href="#">Hollywood</a><br>
+      <a href="#">Bollywood</a>
+    </section>
+    <section>
+      <h4>Resources</h4>
+      <a href="#">FAQs</a><br>
+      <a href="#">Search Movie</a>
+    </section>
+    <section class="newsletter">
+      <h4>Newsletter</h4>
+      <input type="email" placeholder="you@example.com" />
+      <label><input type="checkbox"> I agree with Privacy Policy and Terms of Condition</label><br>
+      <button>Send</button><br>
+      <div class="social">
+        <a href="#">📘</a><a href="#">📸</a><a href="#">🐦</a><a href="#">▶️</a>
+      </div>
+    </section>
+  </footer>
+
+  <script>
+    const API_KEY = "2568f39";
+    const movieGrid = document.getElementById("movies");
+    const buttons = document.querySelectorAll(".categories button");
+  
+    // Default search term
+    let currentQuery = "latest";
+  
+    // Load movies based on query
+    async function fetchMovies(query) {
+      movieGrid.innerHTML = "<p>Loading movies...</p>";
+      try {
+        const res = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${query}&type=movie`);
+        const data = await res.json();
+  
+        if (data.Response === "True") {
+          movieGrid.innerHTML = "";
+          data.Search.forEach(movie => {
+            const imgSrc = movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/180x270?text=No+Image";
+  
+            const card = document.createElement("div");
+            card.className = "movie-card";
+            card.innerHTML = `
+              <img src="${imgSrc}" alt="${movie.Title}" onerror="this.src='https://via.placeholder.com/180x270?text=Image+Error';">
+              <h3>${movie.Title}</h3>
+              <p>Type: ${movie.Type}</p>
+              <div class="heart">♡</div>
+            `;
+            // Toggle heart
+            card.querySelector(".heart").addEventListener("click", (e) => {
+              e.target.textContent = e.target.textContent === "♡" ? "❤️" : "♡";
+            });
+  
+            movieGrid.appendChild(card);
+          });
+        } else {
+          movieGrid.innerHTML = `<p style="color: red;">${data.Error}</p>`;
+        }
+      } catch (err) {
+        movieGrid.innerHTML = `<p style="color: red;">Failed to load movies.</p>`;
+        console.error(err);
+      }
+    }
+  
+    // Load default movies
+    fetchMovies(currentQuery);
+  
+    // Handle category button clicks
+    buttons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        buttons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+  
+        const text = btn.innerText.toLowerCase();
+        if (text.includes("marvel")) currentQuery = "marvel";
+        else if (text.includes("funny")) currentQuery = "comedy";
+        else if (text.includes("animation")) currentQuery = "animation";
+        else if (text.includes("web series")) currentQuery = "web";
+  
+        fetchMovies(currentQuery);
+      });
+    });
+  
+    // Feature slider logic (unchanged)
+    let featureIndex = 0;
+    const featureSlide = document.getElementById("featureSlide");
+    const dotsContainer = document.getElementById("featureDots");
+    const total = featureSlide.children.length;
+  
+    for (let i = 0; i < total; i++) {
+      const dot = document.createElement("span");
+      dot.addEventListener("click", () => showFeature(i));
+      dotsContainer.appendChild(dot);
+    }
+  
+    function showFeature(n) {
+      featureIndex = n;
+      featureSlide.style.transform = `translateX(-${n * 100}%)`;
+      updateDots();
+    }
+  
+    function updateDots() {
+      Array.from(dotsContainer.children).forEach((dot, i) => {
+        dot.classList.toggle("active", i === featureIndex);
+      });
+    }
+  
+    function autoSlide() {
+      featureIndex = (featureIndex + 1) % total;
+      showFeature(featureIndex);
+    }
+  
+    showFeature(0);
+    setInterval(autoSlide, 5000);
+  
+    function prevHero() { alert("Previous slide"); }
+    function nextHero() { alert("Next slide"); }
+  </script>
+  
+
+</body>
+</html>
