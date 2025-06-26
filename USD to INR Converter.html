@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>USD to INR Converter</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+      }
+      input {
+        margin: 5px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- React and Babel CDN -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <!-- Your JSX code -->
+    <script type="text/babel">
+      function CurrencyConverter() {
+        const rate = 73.66;
+        const [dollars, setDollars] = React.useState(10);
+
+        const handleChange = (e) => {
+          setDollars(e.target.value);
+        };
+
+        return (
+          <div>
+            <h4><strong>{rate} Indian Rupee</strong></h4>
+            <div>
+              <input
+                type="number"
+                value={dollars}
+                onChange={handleChange}
+              />{" "}
+              Dollar
+            </div>
+            <div>
+              <input
+                type="text"
+                value={(dollars * rate).toFixed(13)}
+                readOnly
+              />{" "}
+              Rupee
+            </div>
+          </div>
+        );
+      }
+
+      ReactDOM.render(<CurrencyConverter />, document.getElementById("root"));
+    </script>
+  </body>
+</html>
